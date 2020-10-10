@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import AddUser from './component/AddUser';
+import EditUser from './component/EditUser';
+import Home from './component/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <div style={{maxWidth:'300rem', margin :'4rem auto'}}>
+      <Router>
+        <Switch>
+          <Route exact path='/'  component={Home} />
+          <Route path='/edit'  component={EditUser} />
+          <Route path='/add'  component={AddUser} />
+        </Switch>
+      </Router>
+   
+   </div>
+    )
+  }
 }
-
-export default App;
